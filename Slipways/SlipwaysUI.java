@@ -48,7 +48,7 @@ public class SlipwaysUI {
   }
 
   public static void actionPrompt () {
-    String actPrompt = "Enter one of the following actions: probe, discover, connect, or quit.";
+    String actPrompt = "Enter one of the following actions: probe, discover, connect, quit, clear.";
     System.out.println(actPrompt);
   }
 

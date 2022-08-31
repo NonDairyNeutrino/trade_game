@@ -59,9 +59,9 @@ public class Slipways {
         case "connect":
           System.out.println("connect out");
           break;
-        //
+        
         case "clear":
-          System.out.print("\033\143");
+          System.out.print("\033\143"); // clears the console
           break;
       }
       // TODO: show board state
