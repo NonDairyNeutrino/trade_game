@@ -23,7 +23,13 @@ public class SlipwaysUI {
   public static void welcome () {
     splash();
     System.out.println("Welcome to (text-based) Slipways; where you can build your interplanetary trade empire!");
+
     System.out.println("To begin you can either specify a seed for planet generation, or you can use a randomly generated one.");
+  }
+
+  public static String chooseMode () {
+    System.out.println("To begin, select whether you want to play in 'Sandbox' or 'Story' mode.");
+    return sc.nextLine();
   }
 
   // get the user input seed or generatea a random one

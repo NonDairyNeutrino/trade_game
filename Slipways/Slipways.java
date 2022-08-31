@@ -27,15 +27,21 @@ public class Slipways {
   private static Random rng;
 
   public static void main(String[] args) {
-    SlipwaysUI.welcome();
-    rng = SlipwaysUI.getRNG();
+    SlipwaysUI.welcome(); // display welcome text
+    // prompt to give flavor or not
+    String mode = SlipwaysUI.chooseMode();
+    if (mode.equals("story")) {
+      Flavor.intro();
+    }
+
+    rng = SlipwaysUI.getRNG(); // get rng based on seed
 
     String input;
     SlipwaysUI.actionPrompt();
     while (!(input = SlipwaysUI.sc.nextLine()).equals("quit") && !input.equals("q")) {
       // input can be one of "probe", "discover", "connect", etc.
       switch (input) {
-        // display
+        // DISPLAY
         case "b":
         case "board":
         case "s":
@@ -46,7 +52,7 @@ public class Slipways {
         case "controls":
           SlipwaysUI.showActions();
           break;
-        // actions
+        // ACTIONS
         case "p":
         case "probe":
           System.out.println("probe out");
@@ -59,7 +65,7 @@ public class Slipways {
         case "connect":
           System.out.println("connect out");
           break;
-        
+
         case "clear":
           System.out.print("\033\143"); // clears the console
           break;
