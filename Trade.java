@@ -1,5 +1,5 @@
 /*
-Objective: This program serves to execute the main gameplay loop of the text-based implementation of the Slipways game.
+Objective: This program serves to execute the main gameplay loop of the text-based implementation of the Trade game.
 Author: Nathan Chapman
 Date: 8/26/2022
 */
@@ -7,7 +7,7 @@ Date: 8/26/2022
 /*
 Outline
 -------
-1) Print initial prompt and introduction to the game ex. "Welcome to (text-based) Slipways where you can build your interplanetary trade empire!"
+1) Print initial prompt and introduction to the game ex. "Welcome to (text-based) Trade where you can build your interplanetary trade empire!"
 
 2) Generate random planets via a seed.  Seed can be given or random.
 
@@ -22,23 +22,23 @@ Outline
 
 import java.util.Random;
 
-public class Slipways {
+public class Trade {
 
   private static Random rng;
 
   public static void main(String[] args) {
-    SlipwaysUI.welcome(); // display welcome text
+    TradeUI.welcome(); // display welcome text
     // prompt to give flavor or not
-    String mode = SlipwaysUI.chooseMode();
+    String mode = TradeUI.chooseMode();
     if (mode.equals("story")) {
       Flavor.intro();
     }
 
-    rng = SlipwaysUI.getRNG(); // get rng based on seed
+    rng = TradeUI.getRNG(); // get rng based on seed
 
     String input;
-    SlipwaysUI.actionPrompt();
-    while (!(input = SlipwaysUI.sc.nextLine()).equals("quit") && !input.equals("q")) {
+    TradeUI.actionPrompt();
+    while (!(input = TradeUI.sc.nextLine()).equals("quit") && !input.equals("q")) {
       // input can be one of "probe", "discover", "connect", etc.
       switch (input) {
         // DISPLAY
@@ -50,7 +50,7 @@ public class Slipways {
           break;
         case "actions":
         case "controls":
-          SlipwaysUI.showActions();
+          TradeUI.showActions();
           break;
         // ACTIONS
         case "p":
@@ -71,7 +71,7 @@ public class Slipways {
           break;
       }
       // TODO: show board state
-      SlipwaysUI.actionPrompt();
+      TradeUI.actionPrompt();
     }
   }
 }

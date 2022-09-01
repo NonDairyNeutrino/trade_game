@@ -7,7 +7,7 @@ Date: 8/26/2022
 import java.util.Scanner;
 import java.util.Random;
 
-public class SlipwaysUI {
+public class TradeUI {
   public static Scanner sc = new Scanner(System.in);
   private static Random rng = new Random();
 
