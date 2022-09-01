@@ -16,13 +16,13 @@ public class TradeUI {
   //private static String controlsText = "";
 
   public static void splash () {
-    String splashText = "========================\n        SLIPWAYS        \n========================";
+    String splashText = "========================\n        TRADE        \n========================";
     System.out.println(splashText);
   }
 
   public static void welcome () {
     splash();
-    System.out.println("Welcome to (text-based) Slipways; where you can build your interplanetary trade empire!");
+    System.out.println("Welcome to TRADE; where you can build your interplanetary trade empire!");
   }
 
   public static String chooseMode () {
