@@ -5,11 +5,17 @@ public class Planet {
   // Instrinsic properties
   public String name; // randomly generated hex number
   public int id;
-  public String state = "NG";
+  private String needsGives = "NG", needs = "N_", gives = "_G", satisfied = "__";
+  // values of strings can be:
+  // "NG" = has unmet needs, and has things to give (default state)
+  // "N_" = has unmet needs, but can't give any more
+  // "_G" = has needs met, but still has resources to give
+  // "__" = has needs met and no more resources to give
+  public String state = needsGives;
   public boolean discovered = false;
   public boolean colonized  = false;
-  public ArrayList<String> needs = new ArrayList<String>();
-  public ArrayList<String> gives = new ArrayList<String>();
+  public ArrayList<String> needsList = new ArrayList<String>();
+  public ArrayList<String> givesList = new ArrayList<String>();
   // Extrinsic properties
   public ArrayList<Planet> connections = new ArrayList<Planet>();
 

@@ -11,13 +11,6 @@ public class PlanetSystem {
   public ArrayList<Planet> planets;
   public ArrayList<ArrayList<String> > network;
 
-  private static String needsGives = "NG", needs = "N_", gives = "_G", satisfied = "__";
-  // values of strings can be:
-  // "NG" = has unmet needs, and has things to give (default state)
-  // "N_" = has unmet needs, but can't give any more
-  // "_G" = has needs met, but still has resources to give
-  // "__" = has needs met and no more resources to give
-
 // METHODS
   // create an empty planetary system
   public PlanetSystem () {
@@ -46,11 +39,11 @@ public class PlanetSystem {
   public void addPlanet (Planet p) {
     planets.add(p);
     if (network.get(0).isEmpty()) {
-      network.get(0).add(needsGives);
+      network.get(0).add(p.state);
     }
     else {
       extendNetwork();
-      network.get(network.size() - 1).set(network.size() - 1, needsGives);
+      network.get(network.size() - 1).set(network.size() - 1, p.state);
     }
   }
 
