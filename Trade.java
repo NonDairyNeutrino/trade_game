@@ -18,6 +18,8 @@ Outline
 4) TODO: Return board state
 
 5) goto step 2 and loop!
+------------------------
+TODO: change all Slipways terminology to graph terms (node, network, etc.)
 */
 
 import java.util.Random;
@@ -48,6 +50,7 @@ public class Trade {
         case "state":
           System.out.println("BOARD");
           break;
+        case "help":
         case "actions":
         case "controls":
           TradeUI.showActions();
