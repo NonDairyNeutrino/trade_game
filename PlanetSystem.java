@@ -16,30 +16,28 @@ public class PlanetSystem {
   // create an empty planetary system
   public PlanetSystem () {
     // initialize system with 0 planets
-    planets = new ArrayList<Planet>(0);
+    planets = new ArrayList<Planet>();
     // initialize system with a null network adjacency matrix
-    network = new ArrayList<ArrayList<String> >(0);
-    network.add(new ArrayList<String>(0));
+    network = new ArrayList<ArrayList<String> >();
+    network.add(new ArrayList<String>());
   }
 
   // add a new row and column to the network adjacency matrix
   private void extendNetwork () {
-
-    if (network.get(0).isEmpty()) {
-      network.add(new ArrayList<String>(1));
-    }
-    else {
-      network.forEach((row) -> row.add("")); // tack on another element at the end of each  row
-      network.add(new ArrayList<String>(network.size() + 1));    // add another row
-      network.get(network.size() - 1).set(network.size() - 1, ""); // initialize the last element of the new row
-    }
+    network.forEach((row) -> row.add("")); // tack on another element at the end of each  row
+    network.add(new ArrayList<String>(network.size() + 1));    // add another row
+    network.get(network.size() - 1).set(network.size() - 1, ""); // initialize the last element of the new row
   }
 
   // when a
   public void addPlanet (Planet p) {
     planets.add(p);
-    extendNetwork();
-    //network.
+    if (network.get(0).isEmpty()) {
+      network.get(0).add(p);
+    }
+    else {
+      extendNetwork();
+    }
   }
 
   // TODO: add  planet connecting
@@ -53,13 +51,8 @@ public class PlanetSystem {
 
   }
 
-  // public static String toString () {
-  //   // TODO: print board
-  //   return "";
-  // }
-
   public static void main(String[] args) {
     PlanetSystem empire = new PlanetSystem();
-    System.out.println(empire.planets);
+    empire.addPlanet(new Planet(0));
   }
 }
