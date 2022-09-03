@@ -3,8 +3,9 @@ import java.util.Collections;
 
 public class Planet {
   // Instrinsic properties
-  public String name;
-  private int id;
+  public String name; // randomly generated hex number
+  public int id;
+  public String state = "NG";
   public boolean discovered = false;
   public boolean colonized  = false;
   public ArrayList<String> needs = new ArrayList<String>();
