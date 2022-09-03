@@ -10,7 +10,13 @@ public class PlanetSystem {
 // CLASS VARIABLES
   public ArrayList<Planet> planets;
   public ArrayList<ArrayList<String> > network;
-  // values of strings can be: 'u' for undiscovered, "d" for discovered, 'c1/2/3' for colonized at levels 1,2, or 3
+
+  private static String needsGives = "NG", needs = "N_", gives = "_G", satisfied = "__";
+  // values of strings can be:
+  // "NG" = has unmet needs, and has things to give (default state)
+  // "N_" = has unmet needs, but can't give any more
+  // "_G" = has needs met, but still has resources to give
+  // "__" = has needs met and no more resources to give
 
 // METHODS
   // create an empty planetary system
@@ -24,19 +30,28 @@ public class PlanetSystem {
 
   // add a new row and column to the network adjacency matrix
   private void extendNetwork () {
-    network.forEach((row) -> row.add("")); // tack on another element at the end of each  row
-    network.add(new ArrayList<String>(network.size() + 1));    // add another row
-    network.get(network.size() - 1).set(network.size() - 1, ""); // initialize the last element of the new row
+    int curDim = network.size();
+    int newDim = network.size() + 1;
+
+    network.forEach((row) -> row.add("poop")); // tack on another element at the end of each row
+
+    network.add(new ArrayList<String>(newDim)); // add an EMPTY row
+    // initialize new row
+    for (int k = 0; k < newDim; k++) {
+      network.get(newDim - 1).add("poop"); // initialize the last row
+    }
   }
 
   // when a
   public void addPlanet (Planet p) {
     planets.add(p);
     if (network.get(0).isEmpty()) {
-      network.get(0).add(p);
+      network.get(0).add(needsGives);
     }
     else {
       extendNetwork();
+      System.out.println(network);
+      //network.get(network.size() - 1).set(network.size() - 1, needsGives);
     }
   }
 
@@ -51,8 +66,15 @@ public class PlanetSystem {
 
   }
 
+  public void showBoard () {
+    System.out.println(network);
+  }
+
   public static void main(String[] args) {
     PlanetSystem empire = new PlanetSystem();
     empire.addPlanet(new Planet(0));
+    empire.showBoard();
+    empire.addPlanet(new Planet(1));
+    empire.showBoard();
   }
 }
