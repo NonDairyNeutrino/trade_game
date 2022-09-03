@@ -52,7 +52,7 @@ public class TradeUI {
   }
 
   public static void actionPrompt () {
-    String actPrompt = "Enter one of the following actions: probe, discover, connect, quit, clear.";
+    String actPrompt = "Enter one of the following actions: (p)robe, (d)iscover, (c)onnect, (q)uit, clear.";
     System.out.println(actPrompt);
   }
 
