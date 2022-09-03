@@ -33,12 +33,12 @@ public class PlanetSystem {
     int curDim = network.size();
     int newDim = network.size() + 1;
 
-    network.forEach((row) -> row.add("poop")); // tack on another element at the end of each row
+    network.forEach((row) -> row.add("")); // tack on another element at the end of each row
 
     network.add(new ArrayList<String>(newDim)); // add an EMPTY row
     // initialize new row
     for (int k = 0; k < newDim; k++) {
-      network.get(newDim - 1).add("poop"); // initialize the last row
+      network.get(newDim - 1).add(""); // initialize the last row
     }
   }
 
@@ -50,8 +50,7 @@ public class PlanetSystem {
     }
     else {
       extendNetwork();
-      System.out.println(network);
-      //network.get(network.size() - 1).set(network.size() - 1, needsGives);
+      network.get(network.size() - 1).set(network.size() - 1, needsGives);
     }
   }
 
@@ -67,7 +66,7 @@ public class PlanetSystem {
   }
 
   public void showBoard () {
-    System.out.println(network);
+    network.forEach((row) -> System.out.println(row));
   }
 
   public static void main(String[] args) {
@@ -75,6 +74,8 @@ public class PlanetSystem {
     empire.addPlanet(new Planet(0));
     empire.showBoard();
     empire.addPlanet(new Planet(1));
+    empire.showBoard();
+    empire.addPlanet(new Planet(2));
     empire.showBoard();
   }
 }
