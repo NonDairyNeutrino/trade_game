@@ -11,7 +11,7 @@ Outline
 
 2) Generate random planets via a seed.  Seed can be given or random.
 
-2) TODO: Get user inputted actions e.g. discover, colonize, connect, trade.
+2) Get user inputted actions e.g. discover, colonize, connect, trade.
 
 3) TODO: Implement the action on the system via the backend
 
@@ -31,7 +31,10 @@ public class Trade {
   public static void main(String[] args) {
     TradeUI.welcome(); // display welcome text
     // prompt to give flavor or not
-    String mode = TradeUI.chooseMode();
+    String mode;
+    while (!(mode = TradeUI.chooseMode()).equals("story") && !mode.equals("sandbox")) {
+      System.out.println("Please enter a valid choice of mode.");
+    }
     if (mode.equals("story")) {
       Flavor.intro();
     }
@@ -55,6 +58,9 @@ public class Trade {
         case "controls":
           TradeUI.showActions();
           break;
+        case "clear":
+          System.out.print("\033\143"); // clears the console
+          break;
         // ACTIONS
         case "p":
         case "probe":
@@ -68,9 +74,8 @@ public class Trade {
         case "connect":
           System.out.println("connect out");
           break;
-
-        case "clear":
-          System.out.print("\033\143"); // clears the console
+        default:
+          System.out.println("Please enter a valid action.");
           break;
       }
       // TODO: show board state
