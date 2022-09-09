@@ -13,6 +13,8 @@ Outline
 
 2) Get user inputted actions e.g. discover, colonize, connect, trade.
 
+2.5) TODO: Generate planets to choose from, where each planet has randomly generated needs, gives, and name
+
 3) TODO: Implement the action on the system via the backend
 
 4) TODO: Return board state
