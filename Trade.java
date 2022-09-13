@@ -22,6 +22,8 @@ Outline
 5) goto step 2 and loop!
 ------------------------
 TODO: change all Slipways terminology to graph terms (node, network, etc.)
+
+TODO: add graph planarity checking to test if routes cross
 */
 
 import java.util.Random;
