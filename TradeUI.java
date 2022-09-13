@@ -41,6 +41,7 @@ public class TradeUI {
     else {
       return Integer.valueOf(seedString);
     }
+    // IDEA: allow for text entry and convert to integer
   }
 
   public static Random getRNG () {
@@ -52,7 +53,7 @@ public class TradeUI {
   }
 
   public static void actionPrompt () {
-    String actPrompt = "Enter one of the following actions: (p)robe, (d)iscover, (c)onnect, QUIT, clear.";
+    String actPrompt = "Enter one of the following actions:\nInformation\n (b)oard/(s)tate, (h)elp/(a)ctions/(c)ontrols\nActions\n (p)robe, (d)iscover, (c)onnect\nView\n QUIT, clear.";
     System.out.println(actPrompt);
   }
 

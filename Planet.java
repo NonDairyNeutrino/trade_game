@@ -34,9 +34,4 @@ public class Planet {
     this.needs = needs;
     this.gives = gives;
   }
-
-  public static void main(String[] args) {
-    System.out.println("test");
-  }
-
 }
