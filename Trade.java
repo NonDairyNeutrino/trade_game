@@ -45,7 +45,7 @@ public class Trade {
 
     String input;
     TradeUI.actionPrompt();
-    while (!(input = TradeUI.sc.nextLine()).equals("quit") && !input.equals("q")) {
+    while (!(input = TradeUI.sc.nextLine()).equals("QUIT")) {
       // input can be one of "probe", "discover", "connect", etc.
       switch (input) {
         // DISPLAY

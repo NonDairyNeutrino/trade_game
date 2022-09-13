@@ -49,7 +49,7 @@ public class PlanetSystem {
 
   // TODO: add  planet connecting
   public void addConnection (Planet p1, Planet p2) {
-    
+
 
   }
 
