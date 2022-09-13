@@ -49,7 +49,7 @@ public class PlanetSystem {
 
   // gets new planets
   public void probe () {
-    
+
   }
 
   // TODO: add  planet connecting
@@ -61,19 +61,5 @@ public class PlanetSystem {
   // trade between planets
   public void trade(Planet p){
 
-  }
-
-  public void showBoard () {
-    network.forEach((row) -> System.out.println(row));
-  }
-
-  public static void main(String[] args) {
-    PlanetSystem empire = new PlanetSystem();
-    empire.addPlanet(new Planet(0));
-    empire.showBoard();
-    empire.addPlanet(new Planet(1));
-    empire.showBoard();
-    empire.addPlanet(new Planet(2));
-    empire.showBoard();
   }
 }
