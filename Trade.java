@@ -44,6 +44,7 @@ public class Trade {
     }
 
     rng = TradeUI.getRNG(); // get rng based on seed
+    PlanetSystem board = new PlanetSystem();
 
     String input;
     TradeUI.actionPrompt();
@@ -55,7 +56,7 @@ public class Trade {
         case "board":
         case "s":
         case "state":
-          System.out.println("BOARD");
+          TradeUI.showBoard(board);
           break;
         case "help":
         case "actions":
@@ -82,7 +83,7 @@ public class Trade {
           System.out.println("Please enter a valid action.");
           break;
       }
-      // TODO: show board state
+      System.out.println();
       TradeUI.actionPrompt();
     }
   }

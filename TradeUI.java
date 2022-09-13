@@ -72,8 +72,8 @@ public class TradeUI {
     // TODO: display new planet information
   }
 
-  public void showBoard () {
-    network.forEach((row) -> System.out.println(row));
+  public static void showBoard (PlanetSystem board) {
+    board.network.forEach((row) -> System.out.println(row));
   }
 
 }
