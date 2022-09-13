@@ -11,10 +11,6 @@ public class TradeUI {
   public static Scanner sc = new Scanner(System.in);
   private static Random rng = new Random();
 
-  //private static String helpText = ""
-
-  //private static String controlsText = "";
-
   public static void splash () {
     String splashText = "========================\n        TRADE        \n========================";
     System.out.println(splashText);
