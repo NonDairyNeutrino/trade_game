@@ -66,4 +66,10 @@ public class TradeUI {
     System.out.println("");
   }
 
+  // TODO: add planet choice prompt
+  public static void probePrompt () {
+    System.out.println("Planets have been found!  What would you like to do with them?");
+    // TODO: display new planet information
+  }
+
 }

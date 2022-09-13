@@ -47,6 +47,11 @@ public class PlanetSystem {
     }
   }
 
+  // gets new planets
+  public void probe () {
+    
+  }
+
   // TODO: add  planet connecting
   public void addConnection (Planet p1, Planet p2) {
 
