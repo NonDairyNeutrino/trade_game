@@ -84,7 +84,6 @@ public class Trade {
           break;
       }
       System.out.println();
-      TradeUI.actionPrompt();
     }
   }
 }
