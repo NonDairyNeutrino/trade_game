@@ -7,6 +7,8 @@ Date: 8/26/2022
 import java.util.Scanner;
 import java.util.Random;
 
+// TODO: initally give list of actions, but then only prompt for an action.  User can use "help" to get list again.
+
 public class TradeUI {
   public static Scanner sc = new Scanner(System.in);
   private static Random rng = new Random();
