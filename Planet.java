@@ -21,7 +21,7 @@ public class Planet {
   // "_G" = has needs met, but still has resources to give
   // "__" = has needs met and no more resources to give
   public String state = needsGives;
-  private HashSet<String> resources  = new HashSet<String>(); // TODO: instantiate the resources HashSet with immediate collection of resource strings
+  private String[] resources  = {"bots"}; // TODO: add resources
 
   public ArrayList<String> needsList = new ArrayList<String>();
   public ArrayList<String> givesList = new ArrayList<String>();
