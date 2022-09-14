@@ -21,7 +21,7 @@ public class Planet {
   // "_G" = has needs met, but still has resources to give
   // "__" = has needs met and no more resources to give
   public String state = needsGives;
-  private String[] resources  = {"bots"}; // TODO: add resources
+  private String[] resources  = {"food", "water", "air", "materials", "people", "entertainment"}; // TODO: add resources
 
   public ArrayList<String> needsList = new ArrayList<String>();
   public ArrayList<String> givesList = new ArrayList<String>();
