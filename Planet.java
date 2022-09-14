@@ -28,6 +28,6 @@ public class Planet {
   }
 
   public String toString () {
-    return "Name: " + name + "\nState: " + state + "\nConnected to: " + "CONNCETIONS" + "\n";
+    return "Name: " + name + "\nState: " + state + "\nNeeds: " + needs[0] +", " + needs[1] + "\nGives: " + gives[0] + ", " + gives[1] + "\nConnected to: " + "CONNCETIONS" + "\n";
   }
 }
