@@ -5,11 +5,13 @@ Date: 8/7/2022
 */
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PlanetSystem {
 // CLASS VARIABLES
   public ArrayList<Planet> planets;
   public ArrayList<ArrayList<String> > network;
+  public int planetCount = 0;
 
 // METHODS
   // create an empty planetary system
@@ -48,8 +50,17 @@ public class PlanetSystem {
   }
 
   // gets new planets
-  public void probe () {
+  public Planet[] probe (Random rng) {
+    Planet[] newPlanets = new Planet[4];
+    for (int k = 0; k < newPlanets.length; k++) {
+      int num = 16777216 + rng.nextInt(251658240); // 16^6 + [0, 16^7 - 16^6)
+      String[] needs = {Planet.resources[rng.nextInt(4)], Planet.resources[rng.nextInt(4)]};
 
+      String[] gives = {Planet.resources[rng.nextInt(4)], Planet.resources[rng.nextInt(4)]};
+
+      newPlanets[k] = new Planet(planetCount++, num, needs, gives);
+    }
+    return newPlanets;
   }
 
   // TODO: add  planet connecting
