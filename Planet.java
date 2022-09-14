@@ -22,8 +22,12 @@ public class Planet {
 
   public Planet(int count, int num, String[] needs, String[] gives) {
     this.id = count;
-    this.name = Integer.toHexString(num);
+    this.name = Integer.toHexString(num).toUpperCase();
     this.needs = needs;
     this.gives = gives;
+  }
+
+  public String toString () {
+    return "Name: " + name + "\nState: " + state + "\nConnected to: " + "CONNCETIONS" + "\n";
   }
 }
