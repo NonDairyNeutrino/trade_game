@@ -54,7 +54,11 @@ public class Trade {
       // ACTIONS
       case "p":
       case "probe":
-        System.out.println("probe out");
+        Planet[] newPlanets = board.probe(rng);
+        for (int k = 0; k < newPlanets.length; k++) {
+          System.out.println(newPlanets[k]);
+        }
+        System.out.println("Probe finished");
         break;
       case "d":
       case "discover":
