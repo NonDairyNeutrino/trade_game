@@ -54,6 +54,9 @@ public class Trade {
       // ACTIONS
       case "p":
       case "probe":
+        if (hasFlavor) {
+          Flavor.probeFlavor();
+        }
         Planet[] newPlanets = board.probe(rng);
         TradeUI.probePrompt(newPlanets);
         break;
