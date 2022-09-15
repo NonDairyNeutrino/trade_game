@@ -104,6 +104,15 @@ public class TradeUI {
     // IDEA: give ability to use planet ID
   }
 
+  public static void tradePrompt (PlanetSystem board) {
+    System.out.println("Which two planets would you like to trade?");
+    System.out.println("Planet 1:");
+    int p1 = Integer.valueOf(sc.nextLine());
+    System.out.println("Planet 2:");
+    int p2 = Integer.valueOf(sc.nextLine());
+    board.trade(p1 - 1, p2 - 1);
+  }
+
   public static void showBoard (PlanetSystem board) {
     board.network.forEach((row) -> System.out.println(row));
   }

@@ -64,9 +64,9 @@ public class Trade {
         }
         TradeUI.showBoard(board);
         break;
-      case "c":
-      case "connect":
-        System.out.println("connect out");
+      case "t":
+      case "trade":
+        TradeUI.tradePrompt(board);
         break;
       default:
         System.out.println("Please enter a valid action.");

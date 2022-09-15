@@ -66,7 +66,17 @@ public class PlanetSystem {
 
   // trade between planets
   public void trade (int id1, int id2){
-    Planet[] planetList = {planets.get(id1), planets.get(id2)};
-    
+    Planet p1 = planets.get(id1), p2 = planets.get(id2);
+    for (String give : p2.gives) {
+      if (p1.needs.contains(give)) {
+        p1.needs.remove(give);
+        p2.gives.remove(give);
+        network.get(id1).get(id2) = "POOP"; // FIXME
+      }
+    }
+    System.out.print("Planet " + id1 + " needs: ");
+    System.out.println(p1.needs);
+    System.out.print("Planet " + id1 + " needs: ");
+    System.out.println(p2.gives);
   }
 }
