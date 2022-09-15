@@ -4,6 +4,7 @@ Author: Nathan Chapman
 Date: 8/7/2022
 */
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -54,9 +55,9 @@ public class PlanetSystem {
     Planet[] newPlanets = new Planet[4];
     for (int k = 0; k < newPlanets.length; k++) {
       int num = 16777216 + rng.nextInt(251658240); // 16^6 + [0, 16^7 - 16^6)
-      String[] needs = {Planet.resources[rng.nextInt(4)], Planet.resources[rng.nextInt(4)]};
+      ArrayList<String> needs = new ArrayList<String>(Arrays.asList(Planet.resources[rng.nextInt(4)], Planet.resources[rng.nextInt(4)]));
 
-      String[] gives = {Planet.resources[rng.nextInt(4)], Planet.resources[rng.nextInt(4)]};
+      ArrayList<String> gives = new ArrayList<String>(Arrays.asList(Planet.resources[rng.nextInt(4)], Planet.resources[rng.nextInt(4)]));
 
       newPlanets[k] = new Planet(planetCount++, num, needs, gives);
     }
@@ -66,17 +67,6 @@ public class PlanetSystem {
   // trade between planets
   public void trade (int id1, int id2){
     Planet[] planetList = {planets.get(id1), planets.get(id2)};
-    for (Planet p : planetList) {
-      System.out.println(new ArrayList<String>(p.needs));
-    }
-    // for (Planet p : planetList) {
-    //   for (int j = 0; j < 2; j++) {
-    //     for (int k = 0; k < 2; k++) {
-    //       if (p1.needs[j].equals(p2.gives[k])) {
-    //
-    //       }
-    //     }
-    //   }
-    // }
+    
   }
 }
