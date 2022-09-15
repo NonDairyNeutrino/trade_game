@@ -4,6 +4,8 @@ Author: Nathan Chapman
 Date: 9/8/22
 */
 
+import java.util.ArrayList;
+
 public class Planet {
 
   public static String[] resources  = {"food", "water", "air", "materials", "people", "entertainment"};
@@ -18,10 +20,10 @@ public class Planet {
   // "_G" = has needs met, but still has resources to give
   // "__" = has needs met and no more resources to give
   public String   state = needsGivesState;
-  public String[] needs = new String[2];
-  public String[] gives = new String[2];
+  public ArrayList<String> needs = new ArrayList<String>(2);
+  public ArrayList<String> gives = new ArrayList<String>(2);
 
-  public Planet(int count, int num, String[] needs, String[] gives) {
+  public Planet(int count, int num, ArrayList<String> needs, ArrayList<String> gives) {
     this.id    = count;
     this.name  = Integer.toHexString(num).toUpperCase();
     this.needs = needs;
@@ -31,8 +33,8 @@ public class Planet {
   public String toString () {
     String nameString  = "ID:    "   + name;
     String stateString = "\nState: " + state;
-    String needsString = "\nNeeds: " + needs[0] +", " + needs[1];
-    String givesString = "\nGives: " + gives[0] + ", " + gives[1];
+    String needsString = "\nNeeds: " + needs.get(0) +", " + needs.get(1);
+    String givesString = "\nGives: " + gives.get(0) + ", " + gives.get(1);
     String connectionsString = "\nConnected to: " + "CONNCETIONS";
     return  nameString + needsString + givesString + "\n";
   }
