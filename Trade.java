@@ -55,10 +55,7 @@ public class Trade {
       case "p":
       case "probe":
         Planet[] newPlanets = board.probe(rng);
-        for (int k = 0; k < newPlanets.length; k++) {
-          System.out.println(newPlanets[k]);
-        }
-        System.out.println("Probe finished");
+        TradeUI.probePrompt(newPlanets);
         break;
       case "d":
       case "discover":
@@ -95,6 +92,7 @@ public class Trade {
     String input;
     TradeUI.actionPrompt();
     while (!(input = TradeUI.sc.nextLine()).equals("QUIT")) {
+      System.out.println();
       parseInput(input);
       System.out.println();
     }

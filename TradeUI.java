@@ -51,7 +51,7 @@ public class TradeUI {
   }
 
   public static void actionPrompt () {
-    String actPrompt = "Enter one of the following actions:\nInformation\n (b)oard/(s)tate, (h)elp/(a)ctions/(c)ontrols\nActions\n (p)robe, (d)iscover, (c)onnect\nView\n QUIT, clear.";
+    String actPrompt = "Enter one of the following actions:\nInformation\n (b)oard/(s)tate, (h)elp/(a)ctions/(c)ontrols\nActions\n (p)robe, (d)iscover, (c)onnect\nView\n QUIT, clear.\n";
     System.out.println(actPrompt);
   }
 
@@ -68,9 +68,28 @@ public class TradeUI {
     System.out.println("");
   }
 
+  private static void slip (int time) {
+    try {
+      Thread.sleep(time);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+    }
+  }
+
   // add planet choice prompt
-  public static void probePrompt () {
-    System.out.println("Planets have been found!  What would you like to do with them?");
+  public static void probePrompt (Planet[] newPlanets) {
+    System.out.print("Probing.");
+    for (int k = 0; k < 2; k++) {
+      slip(1250);
+      System.out.print(".");
+    }
+    slip(1000);
+    System.out.println("\nPlanets have been found! Displaying found planets...\n");
+    for (int k = 0; k < newPlanets.length; k++) {
+      System.out.println(newPlanets[k]);
+    }
+    System.out.println("Which one would you like to add to your trade network?");
     // TODO: display new planet information
   }
 
