@@ -29,11 +29,11 @@ public class Planet {
   }
 
   public String toString () {
-    String nameString  = "Name: " + name;
+    String nameString  = "ID:    "   + name;
     String stateString = "\nState: " + state;
     String needsString = "\nNeeds: " + needs[0] +", " + needs[1];
     String givesString = "\nGives: " + gives[0] + ", " + gives[1];
     String connectionsString = "\nConnected to: " + "CONNCETIONS";
-    return  nameString + stateString + needsString + givesString + "\n";
+    return  nameString + needsString + givesString + "\n";
   }
 }

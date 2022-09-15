@@ -84,13 +84,18 @@ public class TradeUI {
       slip(1250);
       System.out.print(".");
     }
-    slip(1000);
+    slip(500);
     System.out.println("\nPlanets have been found! Displaying found planets...\n");
     for (int k = 0; k < newPlanets.length; k++) {
-      System.out.println(newPlanets[k]);
+      System.out.println("Planet " + String.valueOf(k + 1) + "\n" + newPlanets[k]);
     }
-    System.out.println("Which one would you like to add to your trade network?");
-    // TODO: display new planet information
+
+    System.out.println("Which planet would you like to add to your trade network 1, 2, 3, 4? If none, enter \"none\".");
+    String input;
+    while (!(input = sc.nextLine()).equals("none") && !input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4")) {
+      System.out.println("Please 1, 2, 3, 4, or none.");
+    }
+
   }
 
   public static void showBoard (PlanetSystem board) {
