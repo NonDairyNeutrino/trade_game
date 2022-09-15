@@ -64,10 +64,6 @@ public class Trade {
         }
         TradeUI.showBoard(board);
         break;
-      case "d":
-      case "discover":
-        System.out.println("discover out");
-        break;
       case "c":
       case "connect":
         System.out.println("connect out");
