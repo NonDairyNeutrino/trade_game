@@ -63,14 +63,20 @@ public class PlanetSystem {
     return newPlanets;
   }
 
-  // TODO: add  planet connecting
-  public void addConnection (Planet p1, Planet p2) {
-
-
-  }
-
   // trade between planets
-  public void trade(Planet p){
-
+  public void trade (int id1, int id2){
+    Planet[] planetList = {planets.get(id1), planets.get(id2)};
+    for (Planet p : planetList) {
+      System.out.println(new ArrayList<String>(p.needs));
+    }
+    // for (Planet p : planetList) {
+    //   for (int j = 0; j < 2; j++) {
+    //     for (int k = 0; k < 2; k++) {
+    //       if (p1.needs[j].equals(p2.gives[k])) {
+    //
+    //       }
+    //     }
+    //   }
+    // }
   }
 }
