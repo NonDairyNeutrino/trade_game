@@ -58,7 +58,11 @@ public class Trade {
           Flavor.probeFlavor();
         }
         Planet[] newPlanets = board.probe(rng);
-        TradeUI.probePrompt(newPlanets);
+        int ind;
+        if ((ind = TradeUI.probePrompt(newPlanets)) != -1) {
+          board.addPlanet(newPlanets[ind]);
+        }
+        TradeUI.showBoard(board);
         break;
       case "d":
       case "discover":

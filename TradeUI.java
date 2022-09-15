@@ -78,7 +78,7 @@ public class TradeUI {
   }
 
   // add planet choice prompt
-  public static void probePrompt (Planet[] newPlanets) {
+  public static int probePrompt (Planet[] newPlanets) {
     System.out.print("Probing.");
     for (int k = 0; k < 2; k++) {
       slip(1250);
@@ -95,7 +95,13 @@ public class TradeUI {
     while (!(input = sc.nextLine()).equals("none") && !input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4")) {
       System.out.println("Please 1, 2, 3, 4, or none.");
     }
-
+    if (input.equals("1") || input.equals("2") || input.equals("3") || input.equals("4")) {
+      return Integer.valueOf(input) - 1;
+    }
+    else {
+      return -1;
+    }
+    // IDEA: give ability to use planet ID
   }
 
   public static void showBoard (PlanetSystem board) {
