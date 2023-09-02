@@ -52,7 +52,7 @@ public class TradeUI {
   }
 
   public static void actionPrompt () {
-    String actPrompt = "Enter one of the following actions:\nInformation\n (b)oard/(s)tate, (h)elp/(a)ctions/(c)ontrols\nActions\n (p)robe, (d)iscover, (c)onnect\nView\n QUIT, clear.";
+    String actPrompt = "Enter one of the following actions:\nInformation\n (b)oard/(s)tate, (h)elp/(a)ctions/(c)ontrols\nActions\n (p)robe, (d)iscover, (c)onnect\nView\n QUIT, clear.\n";
     System.out.println(actPrompt);
   }
 
@@ -69,10 +69,49 @@ public class TradeUI {
     System.out.println("");
   }
 
+  private static void slip (int time) {
+    try {
+      Thread.sleep(time);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+    }
+  }
+
   // add planet choice prompt
-  public static void probePrompt () {
-    System.out.println("Planets have been found!  What would you like to do with them?");
-    // TODO: display new planet information
+  public static int probePrompt (Planet[] newPlanets) {
+    System.out.print("Probing.");
+    for (int k = 0; k < 2; k++) {
+      slip(1250);
+      System.out.print(".");
+    }
+    slip(500);
+    System.out.println("\nPlanets have been found! Displaying found planets...\n");
+    for (int k = 0; k < newPlanets.length; k++) {
+      System.out.println("Planet " + String.valueOf(k + 1) + "\n" + newPlanets[k]);
+    }
+
+    System.out.println("Which planet would you like to add to your trade network 1, 2, 3, 4? If none, enter \"none\".");
+    String input;
+    while (!(input = sc.nextLine()).equals("none") && !input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4")) {
+      System.out.println("Please 1, 2, 3, 4, or none.");
+    }
+    if (input.equals("1") || input.equals("2") || input.equals("3") || input.equals("4")) {
+      return Integer.valueOf(input) - 1;
+    }
+    else {
+      return -1;
+    }
+    // IDEA: give ability to use planet ID
+  }
+
+  public static void tradePrompt (PlanetSystem board) {
+    System.out.println("Which two planets would you like to trade?");
+    System.out.println("Planet 1:");
+    int p1 = Integer.valueOf(sc.nextLine());
+    System.out.println("Planet 2:");
+    int p2 = Integer.valueOf(sc.nextLine());
+    board.trade(p1 - 1, p2 - 1);
   }
 
   public static void showBoard (PlanetSystem board) {

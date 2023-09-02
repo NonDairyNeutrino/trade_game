@@ -31,59 +31,73 @@ import java.util.Random;
 
 public class Trade {
 
-  private static Random rng;
+  static Random rng;
+  static PlanetSystem board = new PlanetSystem();
+  static boolean hasFlavor;
 
-  public static void main(String[] args) {
-    TradeUI.welcome(); // display welcome text
-    // prompt to give flavor or not
+  private static void parseInput (String input) {
+    switch (input) {
+      // DISPLAY
+      case "b":
+      case "board":
+      case "s":
+      case "state":
+        TradeUI.showBoard(board);
+        break;
+      case "help":
+      case "actions":
+      case "controls":
+        TradeUI.showActions();
+        break;
+      case "clear":
+        System.out.print("\033\143"); // clears the console
+        break;
+      // ACTIONS
+      case "p":
+      case "probe":
+        if (hasFlavor) {
+          Flavor.probeFlavor();
+        }
+        Planet[] newPlanets = board.probe(rng);
+        int ind;
+        if ((ind = TradeUI.probePrompt(newPlanets)) != -1) {
+          board.addPlanet(newPlanets[ind]);
+        }
+        TradeUI.showBoard(board);
+        break;
+      case "t":
+      case "trade":
+        TradeUI.tradePrompt(board);
+        break;
+      default:
+        System.out.println("Please enter a valid action.");
+        break;
+    }
+  }
+
+  // prompt to give flavor or not
+  static void chooseFlavor () {
     String mode;
+    // include chooseMode in test to get input until correct
     while (!(mode = TradeUI.chooseMode()).equals("story") && !mode.equals("sandbox")) {
       System.out.println("Please enter a valid choice of mode.");
     }
     if (mode.equals("story")) {
       Flavor.intro();
+      hasFlavor = true;
     }
+  }
 
+  public static void main(String[] args) {
+    TradeUI.welcome(); // display welcome text
+    chooseFlavor();
     rng = TradeUI.getRNG(); // get rng based on seed
-    PlanetSystem board = new PlanetSystem();
 
     String input;
     TradeUI.actionPrompt();
     while (!(input = TradeUI.sc.nextLine()).equals("QUIT")) {
-      // input can be one of "probe", "discover", "connect", etc.
-      switch (input) {
-        // DISPLAY
-        case "b":
-        case "board":
-        case "s":
-        case "state":
-          TradeUI.showBoard(board);
-          break;
-        case "help":
-        case "actions":
-        case "controls":
-          TradeUI.showActions();
-          break;
-        case "clear":
-          System.out.print("\033\143"); // clears the console
-          break;
-        // ACTIONS
-        case "p":
-        case "probe":
-          System.out.println("probe out");
-          break;
-        case "d":
-        case "discover":
-          System.out.println("discover out");
-          break;
-        case "c":
-        case "connect":
-          System.out.println("connect out");
-          break;
-        default:
-          System.out.println("Please enter a valid action.");
-          break;
-      }
+      System.out.println();
+      parseInput(input);
       System.out.println();
     }
   }

@@ -12,4 +12,8 @@ public class Flavor {
     String introText = "INTRO TEXT";
     System.out.println(introText);
   }
+
+  public static void probeFlavor () {
+    System.out.println("Due to the quantum nature of this part of space, the planets you find while probing might not there the next time you search.");
+  }
 }
