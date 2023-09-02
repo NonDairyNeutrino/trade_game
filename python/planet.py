@@ -17,6 +17,13 @@ class Planet:
         self.needs = rng.sample(resources_list, 2)
         self.gives = rng.sample(resources_list, 2)
 
+    def summary(self):
+        print(f"name: {self.name}")
+        print(f"id: {self.id}")
+        print(f"state: {self.state}")
+        print(f"needs: {self.needs}")
+        print(f"gives: {self.gives}")
+
 def test():
     p1 = Planet()
-    print(f"name: {p1.name}", f"id: {p1.id}", f"state: {p1.state}", f"needs: {p1.needs}", f"gives: {p1.gives}", sep="\n")
+    print(p1.summary())
