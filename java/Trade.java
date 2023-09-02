@@ -1,3 +1,4 @@
+package java;
 /*
 Objective: This program serves to execute the main gameplay loop of the text-based implementation of the Trade game.
 Author: Nathan Chapman

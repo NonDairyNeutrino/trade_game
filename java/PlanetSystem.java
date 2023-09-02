@@ -1,3 +1,4 @@
+package java;
 /*
 Objective: Graph representation of the system of planets
 Author: Nathan Chapman

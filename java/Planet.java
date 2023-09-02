@@ -1,3 +1,4 @@
+package java;
 /*
 Objective: for the structure of a planet node in the network with its needs, gives, and name
 Author: Nathan Chapman

@@ -1,3 +1,4 @@
+package java;
 /*
 Objective: provide story and flavor to the game
 Author: Nathan Chapman
