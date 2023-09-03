@@ -42,10 +42,8 @@ Enter one of the following actions:
 (b)oard    (shows the network matrix)
 (h)elp     (shows this prompt)
 (p)robe    (search for new planets)
-(s)ettle   (settle found planet)
-(c)onnect  (conenct planets together)
+(t)rade  (conenct planets together)
 QUIT       (quit and exit the game)
-clear      (clear the terminal)
 """
     print(action_prompt_text)
 
@@ -64,7 +62,7 @@ def probe_prompt(found_planets):
     print("Planets have been found! Displaying found planets...")
     print()
     # TODO: display planet info in a row
-    for i in range(3):
+    for i in range(len(found_planets)):
         print(f"Planet {i + 1}:")
         found_planets[i].summary()
         print()
@@ -74,10 +72,10 @@ def probe_prompt(found_planets):
     new_planet = input()
 
     # TODO: add error checking
-    if new_planet == "None":
+    if new_planet == "none":
         return None
     else:
-        return int(new_planet)
+        return found_planets[int(new_planet) - 1]
     
 def trade_prompt():
     print("Which two planets would you like to connect and begin trading?")
@@ -85,6 +83,9 @@ def trade_prompt():
     p2 = input("to planet ")
     return p1, p2
 
-def show_board(network):
+def show_board(network, planet_list):
+    print(f"Planet state list: {[planet.state for planet in planet_list]}")
+
+    print("Planet network:")
     for row in network:
         print(*row)
