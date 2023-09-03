@@ -69,14 +69,13 @@ def probe_prompt(found_planets):
         print(f"Planet {i + 1}:")
         found_planets[i].summary()
         print()
-        
+
     print(f"Which planet would you like to add to your trade network {[*range(1, len(found_planets) + 1)]}? If none, enter \"none\".")
 
     new_planet = input()
 
-    # TODO: do error checking on the input; use TradUI.java as a guide
-    # if new_planet == "":
-    #     return
-    # else:
-    #     try:
-            
+    # TODO: add error checking
+    if new_planet == "None":
+        return None
+    else:
+        return int(new_planet)
