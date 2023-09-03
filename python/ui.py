@@ -24,7 +24,7 @@ def choose_mode():
 
 def get_seed():
 
-    seed_string = input()
+    seed_string = input("Seed: ")
     # set seed here because the Random package sets the GLOBAL seed in rng.seed methods
     if seed_string == "":
         rng.seed()
@@ -34,10 +34,7 @@ def get_seed():
 def get_seed_prompt():
     seed_text = "Please enter a number or text to seed random planet generation.  If you want a random seed, simply press 'Enter'."
     print(seed_text)
-    # don't add a new line so the user enters the seed on the same line as the "Seed: " text
-    print("Seed: ", end=None)
     get_seed()
-    print() # force new line
 
 def action_prompt():
     action_prompt_text = """
@@ -87,3 +84,7 @@ def trade_prompt():
     p1 = input("Connect planet ")
     p2 = input("to planet ")
     return p1, p2
+
+def show_board(network):
+    for row in network:
+        print(*row)
