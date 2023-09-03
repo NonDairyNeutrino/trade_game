@@ -34,6 +34,12 @@ class Planet:
         else:
             self.state = needs_gives_state
 
+def update_needs_gives(planet_1, planet_2):
+    needs_gives_intersection = planet_1.needs.intersection(planet_2.gives)
+    for resource in needs_gives_intersection:
+        planet_1.needs.remove(resource)
+        planet_2.gives.remove(resource)
+
 def test():
     p1 = Planet()
     p1.summary()
