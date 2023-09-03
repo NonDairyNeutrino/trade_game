@@ -4,20 +4,15 @@
 from planet import Planet, update_needs_gives
 
 def extend_network(network):
-    dummy = network[-1]
-    network.append(dummy) # append a row of the right length
+    new_row = ["" for i in range(len(network[-1]))]
+    network.append(new_row) # append a row of the right length
     
     for row in network:
         row.append("")
 
 def add_planet(planet_list, network, planet : Planet):
     planet_list.append(planet)
-
-    if network == [[]]:
-        network[0].append(planet.state)
-    else:
-        extend_network()
-        network[-1][-1] = planet.state
+    extend_network(network)
 
 def trade(network, planet_1 : Planet, planet_2 : Planet):
     # update needs and gives sets for each planet
