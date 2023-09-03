@@ -26,4 +26,4 @@ class Planet:
 
 def test():
     p1 = Planet()
-    print(p1.summary())
+    p1.summary()

@@ -51,21 +51,26 @@ clear      (clear the terminal)
     print(action_prompt_text)
 
 def probe_prompt(found_planets):
-    print("Probing", end=None)
+    print("Probing", end="")
 
     # print loading elipses
     for i in range(3):
-        print(".", end=None)
+        print(".", end="")
         time.sleep(1.25)
+    print() # force new line
     
     # slight delay from loading
     time.sleep(0.5)
 
     print("Planets have been found! Displaying found planets...")
-    for i in range(4):
-        print(f"Planet {i + 1}: {found_planets[i].summary()}")
-
-    print("Which planet would you like to add to your trade network 1, 2, 3, 4? If none, enter \"none\".")
+    print()
+    # TODO: display planet info in a row
+    for i in range(3):
+        print(f"Planet {i + 1}:")
+        found_planets[i].summary()
+        print()
+        
+    print(f"Which planet would you like to add to your trade network {[*range(1, len(found_planets) + 1)]}? If none, enter \"none\".")
 
     new_planet = input()
 
