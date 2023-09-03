@@ -24,6 +24,16 @@ class Planet:
         print(f"needs: {self.needs}")
         print(f"gives: {self.gives}")
 
+    def update_state(self):
+        if self.needs == {} and self.gives == {}:
+            self.state = satisfied_state
+        elif self.needs == {}:
+            self.state = gives_state
+        elif self.gives == {}:
+            self.state == needs_state
+        else:
+            self.state = needs_gives_state
+
 def test():
     p1 = Planet()
     p1.summary()
