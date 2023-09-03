@@ -3,6 +3,8 @@
 import random as rng
 import time
 
+# TODO: add docstrings to everything
+
 # splash banner that displays when you open the game
 def splash():
     banner = """
@@ -79,3 +81,9 @@ def probe_prompt(found_planets):
         return None
     else:
         return int(new_planet)
+    
+def trade_prompt():
+    print("Which two planets would you like to connect and begin trading?")
+    p1 = input("Connect planet ")
+    p2 = input("to planet ")
+    return p1, p2
