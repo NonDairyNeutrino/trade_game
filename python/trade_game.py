@@ -44,6 +44,10 @@ def main():
     
     # start with one planet
     network.add_planet(planet_list, board, planet.Planet())
+
+    print()
+    print("You begin with a single planet.")
+    planet_list[0].summary()
     
     action = "dummy"
     while action != "QUIT":
