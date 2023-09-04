@@ -10,6 +10,9 @@ def parse_input(input_string, board, planet_list):
         case "b" | "board":
             ui.show_board(board, planet_list)
 
+        case "s" | "show":
+            ui.show_planet(planet_list)
+
         case "h" | "help":
             ui.action_prompt()
 
@@ -31,7 +34,7 @@ def main():
     ui.splash()
 
     mode = ui.choose_mode()
-    if mode == "story":
+    if mode == "y" or mode == "yes":
         flavor.show_flavor()
     
     ui.get_seed_prompt()
@@ -42,7 +45,6 @@ def main():
     # start with one planet
     network.add_planet(planet_list, board, planet.Planet())
     
-    ui.action_prompt()
     action = "dummy"
     while action != "QUIT":
         ui.action_prompt()

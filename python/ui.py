@@ -2,6 +2,7 @@
 
 import random as rng
 import time
+from planet import Planet
 
 # TODO: add docstrings to everything
 
@@ -18,8 +19,8 @@ def splash():
 
 # Ask the user to input the mode they wish to use
 def choose_mode():
-    print("To begin, enter whether you want to play in 'sandbox' or 'story' mode.")
-    mode = input()
+    print("Would you like to play in story mode?")
+    mode = input("[y/n]: ")
     return mode
 
 def get_seed():
@@ -48,6 +49,7 @@ QUIT       (quit and exit the game)
     print(action_prompt_text)
 
 def probe_prompt(found_planets):
+    # TODO: fix to show animation
     print("Probing", end="")
 
     # print loading elipses
@@ -89,3 +91,10 @@ def show_board(network, planet_list):
     print("Planet network:")
     for row in network:
         print(*row)
+
+def show_planet(planet_list):
+    # try:
+        planet_id = input("Which planet? ")
+        planet_list[int(planet_id)].summary()
+    # except:
+    #     print("Please enter a valid planet id.")

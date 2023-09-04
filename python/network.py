@@ -11,8 +11,8 @@ def extend_network(network):
         row.append("")
 
 def add_planet(planet_list, network, planet : Planet):
-    planet_list.append(planet)
     planet.id = len(planet_list)
+    planet_list.append(planet)
     extend_network(network)
 
 def trade(network, planet_1 : Planet, planet_2 : Planet):
