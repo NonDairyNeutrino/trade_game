@@ -10,7 +10,7 @@ def parse_input(input_string, board, planet_list):
         case "b" | "board":
             ui.show_board(board, planet_list)
 
-        case "s" | "show":
+        case "i" | "info":
             ui.show_planet(planet_list)
 
         case "h" | "help":

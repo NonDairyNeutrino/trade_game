@@ -41,10 +41,10 @@ def action_prompt():
     action_prompt_text = """
 Enter one of the following actions:
 (b)oard    (displays the network matrix)
-(s)how     (show the planet information)
+(i)nfo     (show the planet information)
 (h)elp     (shows this prompt)
 (p)robe    (search for new planets)
-(t)rade  (conenct planets together)
+(t)rade    (begin trade bewteen planets)
 QUIT       (quit and exit the game)
 """
     print(action_prompt_text)
