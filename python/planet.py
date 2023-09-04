@@ -21,8 +21,8 @@ class Planet:
         print(f"name: {self.name}")
         print(f"id: {self.id}")
         print(f"state: {self.state}")
-        print(f"needs: {self.needs}")
-        print(f"gives: {self.gives}")
+        print(f"needs: {self.needs if self.needs != {} else 'needs met!'}")
+        print(f"gives: {self.gives if self.gives != {} else 'gives met!'}")
 
     def update_state(self):
         if self.needs == {} and self.gives == {}:
