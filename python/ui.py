@@ -40,7 +40,8 @@ def get_seed_prompt():
 def action_prompt():
     action_prompt_text = """
 Enter one of the following actions:
-(b)oard    (shows the network matrix)
+(b)oard    (displays the network matrix)
+(s)how     (show the planet information)
 (h)elp     (shows this prompt)
 (p)robe    (search for new planets)
 (t)rade  (conenct planets together)
