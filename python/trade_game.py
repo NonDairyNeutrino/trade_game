@@ -4,6 +4,7 @@ import flavor
 import network
 import planet
 import ui
+import platform
 
 def parse_input(input_string, board, planet_list):
     match input_string.split():
@@ -62,4 +63,9 @@ def main():
         parse_input(action, board, planet_list)
 
 if __name__ == '__main__':
-    main()
+    # pattern matching was introduced in version 3.10
+    if platform.python_version() >= '3.10':
+        main()
+    else:
+        print("""This program is only able to be run on 
+              python versions greater than or equal to 3.10.""")
