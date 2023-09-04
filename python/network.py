@@ -15,6 +15,10 @@ def add_planet(planet_list, network, planet : Planet):
     planet_list.append(planet)
     extend_network(network)
 
+def connect(network, planet_1 : Planet, planet_2 : Planet):
+    network[planet_1.id][planet_2.id] = [planet_1.state, planet_2.state]
+    network[planet_2.id][planet_1.id] = [planet_2.state, planet_1.state]
+
 def trade(network, planet_1 : Planet, planet_2 : Planet):
     if planet_1 is not planet_2:
     # update needs and gives sets for each planet
@@ -26,6 +30,6 @@ def trade(network, planet_1 : Planet, planet_2 : Planet):
         planet_2.update_state()
 
         # update network
-        network[planet_1.id][planet_2.id] = [planet_1.state, planet_2.state]
+        connect(network, planet_1, planet_2)
     else:
         print("Planets cannot trade with themselves.")
