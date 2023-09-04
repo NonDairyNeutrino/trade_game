@@ -6,26 +6,32 @@ import planet
 import ui
 
 def parse_input(input_string, board, planet_list):
-    match input_string:
-        case "b" | "board":
+    match input_string.split():
+        case ["b"] | ["board"]:
             ui.show_board(board, planet_list)
 
-        case "i" | "info":
-            ui.show_planet(planet_list)
+        case ["info", planet_id_string]:
+            ui.show_planet(planet_list, planet_id_string)
 
-        case "h" | "help":
+        case ["h"] | ["help"]:
             ui.action_prompt()
 
-        case "p" | "probe":
+        case ["p"] | ["probe"]:
             found_planets = [planet.Planet() for i in range(3)]
             new_planet = ui.probe_prompt(found_planets)
             if new_planet != None:
                 network.add_planet(planet_list, board, new_planet)
 
-        case "t" | "trade":
-            p1_id, p2_id = ui.trade_prompt()
-            network.trade(board, planet_list[int(p1_id)], planet_list[int(p2_id)])
-        case "QUIT":
+        case ["trade", planet_1_id_string, planet_2_id_string]:
+            # p1_id, p2_id = ui.trade_prompt()
+            planet_1_id = int(planet_1_id_string)
+            planet_2_id = int(planet_2_id_string)
+
+            planet_1 = planet_list[planet_1_id]
+            planet_2 = planet_list[planet_2_id]
+            
+            network.trade(board, planet_1, planet_2)
+        case ["QUIT"]:
             return
         case _:
             print("Please enter a valid action")

@@ -79,12 +79,6 @@ def probe_prompt(found_planets):
         return None
     else:
         return found_planets[int(new_planet) - 1]
-    
-def trade_prompt():
-    print("Which two planets would you like to connect and begin trading?")
-    p1 = input("Connect planet ")
-    p2 = input("to planet ")
-    return p1, p2
 
 def show_board(network, planet_list):
     print(f"Planet state list: {[planet.state for planet in planet_list]}")
@@ -93,9 +87,8 @@ def show_board(network, planet_list):
     for row in network:
         print(*row)
 
-def show_planet(planet_list):
+def show_planet(planet_list, planet_id_string):
     # try:
-        planet_id = input("Which planet? ")
-        planet_list[int(planet_id)].summary()
+        planet_list[int(planet_id_string)].summary()
     # except:
     #     print("Please enter a valid planet id.")
