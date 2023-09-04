@@ -24,7 +24,7 @@ def parse_input(input_string, board, planet_list):
 
         case "t" | "trade":
             p1_id, p2_id = ui.trade_prompt()
-            network.trade(board, planet_list[p1_id], planet_list[p2_id])
+            network.trade(board, planet_list[int(p1_id)], planet_list[int(p2_id)])
         case "QUIT":
             return
         case _:
