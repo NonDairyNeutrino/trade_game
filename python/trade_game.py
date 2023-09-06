@@ -6,7 +6,10 @@ import planet
 import ui
 import platform
 
-def parse_input(input_string, board, planet_list):
+def parse_input(input_string : str, board : list[list[bool]], planet_list : list[planet.Planet]) -> None:
+    """
+    parse_input(...) takes user input and decides what to do with it.
+    """
     match input_string.split():
         case ["b"] | ["board"]:
             ui.show_board(board, planet_list)
@@ -37,7 +40,10 @@ def parse_input(input_string, board, planet_list):
         case _:
             print("Please enter a valid action")
 
-def main():
+def main() -> None:
+    """
+    main() is the main gameplay loop including initialization of game board and planet list.
+    """
     ui.splash()
 
     mode = ui.choose_mode()
