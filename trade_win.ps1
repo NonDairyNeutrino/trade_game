@@ -1,0 +1,1 @@
+python ./python/trade_game.py
