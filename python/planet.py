@@ -2,20 +2,20 @@
 
 import random as rng
 
-resources_list  = ["food", "water", "air", "materials", "people", "entertainment"]
-needs_gives_state = "NG"
-needs_state = "N_"
-gives_state = "_G"
-satisfied_state = "__"
+RESOURCE_LIST  = ["food", "water", "air", "materials", "people", "entertainment"]
+NEEDS_GIVES_STATE = "NG"
+NEEDS_STATE = "N_"
+GIVES_STATE = "_G"
+SATISFIED_STATE = "__"
 
 class Planet:
     # TODO: add static planet count and use it as the id
     def __init__(self):
         self.name = hex(rng.randint(16**6, 16**7 - 1))[2:].upper() # make the name a 6 character hex string
         self.id   = "Come back to this"
-        self.state = needs_gives_state
-        self.needs = {*rng.sample(resources_list, 2)}
-        self.gives = {*rng.sample(resources_list, 2)}
+        self.state = NEEDS_GIVES_STATE
+        self.needs = {*rng.sample(RESOURCE_LIST, 2)}
+        self.gives = {*rng.sample(RESOURCE_LIST, 2)}
 
     def summary(self):
         print(f"name: {self.name}")
@@ -26,13 +26,13 @@ class Planet:
 
     def update_state(self):
         if self.needs == {} and self.gives == {}:
-            self.state = satisfied_state
+            self.state = SATISFIED_STATE
         elif self.needs == {}:
-            self.state = gives_state
+            self.state = GIVES_STATE
         elif self.gives == {}:
-            self.state == needs_state
+            self.state == NEEDS_STATE
         else:
-            self.state = needs_gives_state
+            self.state = NEEDS_GIVES_STATE
 
 def update_needs_gives(planet_1, planet_2):
     needs_gives_intersection = planet_1.needs.intersection(planet_2.gives)
